@@ -30,8 +30,9 @@ def get_uv_index(bot, update):
         filter(lambda p: p['nombre'] == 'SANTIAGO', radiation_data)
     )
 
+    text = 'Pronostico ' + radiation_stgo['fechapron'] + ': ' + radiation_stgo['indicepron']
     bot.sendMessage(
-        chat_id=update.message.chat_id, text=radiation_stgo['indiceobs'])
+        chat_id=update.message.chat_id, text)
 
 
 def parse_normal_message(bot, update):
