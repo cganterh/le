@@ -32,7 +32,7 @@ def get_uv_index(bot, update):
 
     text = 'Pronostico ' + radiation_stgo['fechapron'] + ': ' + radiation_stgo['indicepron']
     bot.sendMessage(
-        chat_id=update.message.chat_id, text)
+        chat_id=update.message.chat_id, text=text)
 
 
 def parse_normal_message(bot, update):
