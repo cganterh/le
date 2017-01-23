@@ -6,7 +6,7 @@ import logging
 
 from telegram.ext import CommandHandler, Filters, MessageHandler, Updater
 
-from .handlers import hello, get_uv_index, parse_normal_message
+from .handlers import hello, objection, get_uv_index, parse_normal_message
 
 
 with open('config.json') as f:
@@ -25,6 +25,10 @@ updater.dispatcher.add_handler(
 
 updater.dispatcher.add_handler(
     CommandHandler('uvindex', get_uv_index)
+)
+
+updater.dispatcher.add_handler(
+    CommandHandler('objection', objection)
 )
 
 updater.dispatcher.add_handler(

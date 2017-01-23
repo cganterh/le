@@ -17,6 +17,13 @@ def hello(bot, update):
     )
 
 
+def objection(bot, update):
+    bot.sendMessage(
+        chat_id=update.message.chat_id,
+        text="Objection!"
+    )
+
+
 def get_uv_index(bot, update):
     response = requests.get(
         'http://archivos.meteochile.gob.cl/portaldmc/meteochile/js/'
@@ -30,7 +37,10 @@ def get_uv_index(bot, update):
         filter(lambda p: p['nombre'] == 'SANTIAGO', radiation_data)
     )
 
-    text = 'Pronostico ' + radiation_stgo['fechapron'] + ': ' + radiation_stgo['indicepron']
+    date = radiation_stgo['fechapron']
+    index = radiation_stgo['indicepron'].split(':')
+
+    text = 'Pronostico Dia: {}. UV index: {}({})'.format(date, index[0], index[1])
     bot.sendMessage(
         chat_id=update.message.chat_id, text=text)
 
