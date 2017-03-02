@@ -62,7 +62,7 @@ def start_uv_index(bot, update, job_queue):
 
 def stop_uv_index(bot, update, job_queue):
     for j in job_queue.jobs():
-        if j.name == 'UV Index Daily Report':
+        if j.name == 'UV Index Daily Report' and j.context == update.message.chat_id:
             j.schedule_removal()
 
     bot.sendMessage(chat_id=update.message.chat_id, text='Canceled all UV Index daily reports')
