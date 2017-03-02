@@ -2,6 +2,7 @@ from difflib import get_close_matches
 from logging import getLogger
 from pprint import pprint
 from random import choice, random
+from datetime import time
 
 import requests
 
