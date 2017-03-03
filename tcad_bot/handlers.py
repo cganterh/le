@@ -5,6 +5,7 @@ from pprint import pprint
 from random import choice, random
 
 import requests
+from telegram.ext.jobqueue import Days
 
 
 rooms = {}
@@ -53,7 +54,7 @@ def get_uv_index(bot, update):
 
 
 def callback_uv_index(bot, job):
-    print_uv_index(bot, job.contex)
+    print_uv_index(bot, job.context)
 
 
 def start_uv_index(bot, update, job_queue, args):
