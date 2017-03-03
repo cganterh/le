@@ -30,7 +30,8 @@ updater.dispatcher.add_handler(
 )
 
 updater.dispatcher.add_handler(
-    CommandHandler('start_uvindex', start_uv_index, pass_job_queue=True)
+    CommandHandler(
+        'start_uvindex', start_uv_index, pass_args=True, pass_job_queue=True)
 )
 
 updater.dispatcher.add_handler(

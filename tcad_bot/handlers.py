@@ -56,16 +56,39 @@ def callback_uv_index(bot, job):
     print_uv_index(bot, job.contex)
 
 
-def start_uv_index(bot, update, job_queue):
-    bot.sendMessage(
-        chat_id=update.message.chat_id, text='Initiating UV Index daily report.')
+def start_uv_index(bot, update, job_queue, args):
+    try:
+        hour = int(args[0])
+        minute = int(args[1])
 
-    job_queue.run_daily(
-        callback_uv_index,
-        time=time(9, 0, 0), # 9:00am
-        days=[Days.MON, Days.TUE, Days.WED, Days.THU, Days.FRI],
-        context=update.message.chat_id,
-        name='UV Index Daily Report')
+        job_queue.run_daily(
+            callback_uv_index,
+            time=time(hour, minute),
+            days=(Days.MON, Days.TUE, Days.WED, Days.THU, Days.FRI),
+            context=update.message.chat_id,
+            name='UV Index Daily Report'
+        )
+
+        bot.sendMessage(
+            chat_id=update.message.chat_id,
+            text='Initiating UV Index daily report.'
+        )
+
+    except IndexError:
+        if len(args) is not 2:
+            bot.sendMessage(
+                chat_id=update.message.chat_id,
+                text='You have to pass the hour and minute!'
+            )
+
+        else:
+            bot.sendMessage(
+                chat_id=update.message.chat_id, text='Something went wrong!')
+
+    except:
+        bot.sendMessage(
+            chat_id=update.message.chat_id, text='Something went wrong!')
+
 
 def stop_uv_index(bot, update, job_queue):
     for j in job_queue.jobs():
