@@ -6,7 +6,9 @@ import logging
 
 from telegram.ext import CommandHandler, Filters, MessageHandler, Updater
 
-from .handlers import hello, objection, get_uv_index, start_uv_index, stop_uv_index, parse_normal_message
+from .handlers import \
+    hello, objection, get_uv_index, start_uv_index, stop_uv_index, \
+    parse_normal_message
 
 
 with open('config.json') as f:

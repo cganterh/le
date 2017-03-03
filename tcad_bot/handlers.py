@@ -1,8 +1,8 @@
+from datetime import time
 from difflib import get_close_matches
 from logging import getLogger
 from pprint import pprint
 from random import choice, random
-from datetime import time
 
 import requests
 
@@ -24,6 +24,7 @@ def objection(bot, update):
         text="Objection!"
     )
 
+
 def print_uv_index(bot, chat_id):
     response = requests.get(
         'http://archivos.meteochile.gob.cl/portaldmc/meteochile/js/'
@@ -40,15 +41,20 @@ def print_uv_index(bot, chat_id):
     date = radiation_stgo['fechapron']
     index = radiation_stgo['indicepron'].split(':')
 
-    text = 'Pronostico Dia: {}. UV index: {}({})'.format(date, index[0], index[1])
+    text = 'Pronostico Dia: {}. UV index: {}({})'.format(
+        date, index[0], index[1])
+
     bot.sendMessage(
         chat_id=chat_id, text=text)
+
 
 def get_uv_index(bot, update):
     print_uv_index(bot, update.message.chat_id)
 
+
 def callback_uv_index(bot, job):
     print_uv_index(bot, job.contex)
+
 
 def start_uv_index(bot, update, job_queue):
     bot.sendMessage(
@@ -63,10 +69,15 @@ def start_uv_index(bot, update, job_queue):
 
 def stop_uv_index(bot, update, job_queue):
     for j in job_queue.jobs():
-        if j.name == 'UV Index Daily Report' and j.context == update.message.chat_id:
+        if j.name == 'UV Index Daily Report' and \
+                j.context == update.message.chat_id:
             j.schedule_removal()
 
-    bot.sendMessage(chat_id=update.message.chat_id, text='Canceled all UV Index daily reports')
+    bot.sendMessage(
+        chat_id=update.message.chat_id,
+        text='Canceled all UV Index daily reports'
+    )
+
 
 def parse_normal_message(bot, update):
     cur_message = update.message.text
