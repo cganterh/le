@@ -1,7 +1,7 @@
 from datetime import time
 from difflib import get_close_matches
 from logging import getLogger
-from pprint import pprint
+# from pprint import pprint
 from random import choice, random
 
 import requests
@@ -133,6 +133,6 @@ def parse_normal_message(bot, update):
         response = d[choosen_message]
         bot.sendMessage(chat_id=update.message.chat_id, text=response)
         rooms[chat_id]['last_message'] = response
-
-    pprint(rooms)
-    print('---------------------------')
+    #
+    # pprint(rooms)
+    # print('---------------------------')
