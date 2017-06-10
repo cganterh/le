@@ -37,7 +37,6 @@ setup(
 
     install_requires=[
         'python-telegram-bot ~= 6.0',
-        'requests ~= 2.17',
     ],
 
     entry_points={
