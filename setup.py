@@ -13,11 +13,11 @@ with open(readme_path, encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='tcadbot',
+    name='le',
     version='1.0.0',
     description='A simple chatbot for telegram.',
     long_description=long_description,
-    url='https://github.com/cganterh/tcadbot',
+    url='https://github.com/cganterh/le',
     author='Cristóbal Ganter',
     author_email='cganterh@gmail.com',
     license='MIT',
@@ -42,7 +42,7 @@ setup(
 
     entry_points={
         'console_scripts': [
-            'tcadbot=tcadbot.run:run',
+            'le=le.run:run',
         ],
     },
 )
