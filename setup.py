@@ -1,4 +1,4 @@
-"""Setup script for tcadbot."""
+"""Setup script for Le."""
 
 from setuptools import setup, find_packages
 
