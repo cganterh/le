@@ -15,7 +15,7 @@ with open(readme_path, encoding='utf-8') as f:
 setup(
     name='le',
     version='1.0.0',
-    description='A simple chatbot for telegram.',
+    description='A silly chatbot for telegram.',
     long_description=long_description,
     url='https://github.com/cganterh/le',
     author='Cristóbal Ganter',
