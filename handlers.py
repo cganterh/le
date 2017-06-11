@@ -12,13 +12,6 @@ rooms = {}
 logger = getLogger()
 
 
-def hello(bot, update):
-    bot.sendMessage(
-        chat_id=update.message.chat_id,
-        text="Hi all, I'm the TCAD bot. More features comming soon."
-    )
-
-
 def objection(bot, update):
     bot.sendMessage(
         chat_id=update.message.chat_id,
