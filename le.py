@@ -9,14 +9,19 @@ from telegram.ext import Updater
 
 def run():
     """Run all handlers in the group ``le.handlers``."""
-    logging.basicConfig(
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-        level=logging.INFO
-    )
-
     parser = ArgumentParser(fromfile_prefix_chars='@')
     parser.add_argument('telegram_token')
+    parser.add_argument('-d', '--debug', action='store_true')
     args = parser.parse_args()
+
+    logging.basicConfig(
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        level=logging.DEBUG if args.debug else logging.INFO
+    )
+
+    logging.getLogger('telegram.ext').setLevel(logging.INFO)
+    logging.getLogger('telegram.bot').setLevel(logging.INFO)
+    logging.getLogger('telegram.vendor').setLevel(logging.INFO)
 
     updater = Updater(token=args.telegram_token)
 
