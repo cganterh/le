@@ -26,10 +26,14 @@ def run():
     updater = Updater(token=args.telegram_token)
 
     entry_points_iterator = iter_entry_points('le.handlers')
-    handlers = (ep.load() for ep in entry_points_iterator)
+    handlers = ((ep.name, ep.load()) for ep in entry_points_iterator)
 
-    for handler in handlers:
+    for name, handler in handlers:
         updater.dispatcher.add_handler(handler)
+
+        logging.getLogger().debug(
+            'Loaded {}: {}'.format(name, handler)
+        )
 
     updater.start_polling()
     updater.idle()
