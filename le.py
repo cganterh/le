@@ -35,5 +35,15 @@ def run():
             'Loaded {}: {}'.format(name, handler)
         )
 
+    entry_points_iterator = iter_entry_points('le.handlers.chat')
+    chat_handlers = ((ep.name, ep.load()) for ep in entry_points_iterator)
+
+    for group, (name, handler) in enumerate(chat_handlers, start=1):
+        updater.dispatcher.add_handler(handler, group)
+
+        logging.getLogger().debug(
+            'Loaded {}: {}'.format(name, handler)
+        )
+
     updater.start_polling()
     updater.idle()
