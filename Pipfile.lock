@@ -152,10 +152,10 @@
         },
         "python-telegram-bot": {
             "hashes": [
-                "sha256:f056bee9373b2789786a20366b4c986daa0569baa75c7ca0e32729487ba939d0",
-                "sha256:90ac2ff18f6217ad06330af98ba148957c55b92ae473c65b6726e6b17d3674f6"
+                "sha256:caa89c0eb1e5284ec0d02d6a9a4d6dc1b7db356c16fcde0a4472c4613b742c6e",
+                "sha256:580390d75a63706647962556bab69c7313bee1438411288c37f545e421498e6c"
             ],
-            "version": "==6.1.0"
+            "version": "==10.0.1"
         },
         "six": {
             "hashes": [
