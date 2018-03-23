@@ -10,6 +10,8 @@
 			[
 				".mypy_cache",
 				"__pycache__",
+				"build",
+				"dist",
 				"le.egg-info"
 			],
 			"path": "."
