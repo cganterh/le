@@ -1,0 +1,15 @@
+language: python
+
+python:
+  - "3.3"
+  - "3.4"
+  - "3.5"
+  - "3.6"
+
+before_install: pip install pipenv
+
+# command to install dependencies
+install: pipenv install --dev
+
+# command to run tests
+script: pipenv run make _test

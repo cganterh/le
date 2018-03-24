@@ -1,8 +1,11 @@
-.PHONY: test
-test:
+.PHONY: _test
+_test:
 	flake8 .
 	MYPYPATH=stubs mypy le.py
 	coverage run tests.py
+
+.PHONY: report
+report: _test
 	coverage-badge -qfo coverage.svg
 	coverage report
 
@@ -11,7 +14,7 @@ sdist bdist_wheel: test
 	python setup.py $@
 
 .PHONY: upload
-upload: test clean sdist bdist_wheel
+upload: _test clean sdist bdist_wheel
 	twine upload $(twine_options) dist/*
 
 .PHONY: upload_test
