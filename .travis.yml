@@ -1,13 +1,14 @@
 language: python
-
 python:
-  - "3.5"
-  - "3.6"
-
+- '3.5'
+- '3.6'
 before_install: pip install pipenv
-
-# command to install dependencies
 install: pipenv install --dev
-
-# command to run tests
 script: pipenv run make _test
+deploy:
+  provider: pypi
+  user: "Your username"
+  password:
+    secure: cPDyc74HUwZ82gpwGM9XdrD18h/EDVnwLXl26UU25FCpaLCw5Bg1njUOTwDsmFOq+xY13f3lASFuZrkfi5nbRoD5uO7+GypueMUP0L+Ozi9oPp1KmyGlhOslO5GZfONQ/YdZyu44SYJvteL1wC2W0LyJrdvaETGlxzIDov/olGuFH+K4AfeqkASQldN4hPCGWZkd1AaNbQxCFUHvsN/SSCJC4w+F0FKlDpxUJEG38YrPS4vL2wfn7zTjkqNjyVOxwU9QrZ30KmiHacNk5ZnqLB3BKoAc6xfUv/itruJQZncKquqhAMiqOwDvbvW2bkosWB4kvZ9eaxUMoOrLm/TcnLaR9PreSd4TReqKjlFSd/zWdhggk3KmCHlIj6asR4Y290yk14HoSlKZH897EURkWKKPRdK89K5JEHNjTIQz0z+nKmXdfqpo8Y7Bg+OEG9l5sJHu7roJLUesgC4EyrrmtQP7m1pPbwToxJzkpKBT/vcUsxwh4Z9/fPN3DTDvZ6jPPvfUJ7pDbn3M+lmA3n9JqEDch6vqWo+gDAF2Z4azmlorlK+rQQfrSzQL6PJzEQUcMkFjoSlZNSDXKWbSQHEwYhKgacTOn+MWEYhmfcAtb5N71JLOcZrA1Xkmaepw7wrn1HPKRYbYqts7zuolcdpaK/MkZYtOUOjTzXHMaP08d3Q=
+  on:
+    tags: true
