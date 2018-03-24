@@ -2,8 +2,9 @@ Le
 ==
 
 .. image:: https://travis-ci.org/cganterh/le.svg?branch=master
+
 .. image:: https://coveralls.io/repos/github/cganterh/le/badge.svg?branch=master
-:target: https://coveralls.io/github/cganterh/le?branch=master
+   :target: https://coveralls.io/github/cganterh/le?branch=master
 
 
 Le is a silly extensible chatbot. This package is designed to load plugins in the entry point
