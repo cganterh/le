@@ -1,6 +1,7 @@
 Le
 ==
 
+.. image:: https://travis-ci.org/cganterh/le.svg?branch=master
 .. image:: https://raw.githubusercontent.com/cganterh/le/master/coverage.svg?sanitize=true
 
 Le is a silly extensible chatbot. This package is designed to load plugins in the entry point
