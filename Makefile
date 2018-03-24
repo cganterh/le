@@ -6,7 +6,6 @@ _test:
 
 .PHONY: report
 report: _test
-	coverage-badge -qfo coverage.svg
 	coverage report
 
 .PHONY: sdist bdist_wheel
