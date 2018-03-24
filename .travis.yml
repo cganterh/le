@@ -3,8 +3,12 @@ python:
 - '3.5'
 - '3.6'
 before_install: pip install pipenv
-install: pipenv install --dev
-script: pipenv run make _test
+install:
+- pipenv install --dev
+- pipenv install --dev coveralls
+script:
+- pipenv run make _test
+- coveralls
 deploy:
   provider: pypi
   user: cganterh
